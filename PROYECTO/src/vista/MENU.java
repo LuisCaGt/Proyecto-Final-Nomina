@@ -15,6 +15,7 @@ public class MENU extends javax.swing.JFrame {
     Usuarios mod;
     private BajasEmpleados formBajasEmpleado;
     private ModificacionesEmpleados formModEmpleado;
+    private Mostrar mostrarN;
 
     public MENU() {
         initComponents();
@@ -116,9 +117,19 @@ public class MENU extends javax.swing.JFrame {
         FUNCIONES.setText("FUNCIONES");
 
         jMenuItem5.setText("jMenuItem5");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         FUNCIONES.add(jMenuItem5);
 
-        jMenuItem6.setText("jMenuItem6");
+        jMenuItem6.setText("Mostrar Nomina");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         FUNCIONES.add(jMenuItem6);
 
         FuncionUsuarioMantenimiento.add(FUNCIONES);
@@ -173,6 +184,16 @@ public class MENU extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();//Codigo  para  salir del Programa
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+         mostrarN = new Mostrar();
+         jDesktopPane1.add(mostrarN);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
