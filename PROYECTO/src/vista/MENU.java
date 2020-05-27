@@ -22,12 +22,12 @@ public class MENU extends javax.swing.JFrame {
 
     public MENU() {
         initComponents();
-        jDesktopPane1.setBorder(new imagendefondo());
-        this.setExtendedState(MENU.MAXIMIZED_BOTH);
     }
 
     MENU(Usuarios mod) {
         initComponents();
+        jDesktopPane1.setBorder(new imagendefondo());
+        this.setExtendedState(MENU.MAXIMIZED_BOTH);
         setLocationRelativeTo(null);
         this.mod = mod;
 
