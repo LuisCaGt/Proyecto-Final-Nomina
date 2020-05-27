@@ -14,6 +14,7 @@ public class MENU extends javax.swing.JFrame {
 
     Usuarios mod;
     private BajasEmpleados formBajasEmpleado;
+    private ModificacionesEmpleados formModEmpleado;
 
     public MENU() {
         initComponents();
@@ -102,7 +103,12 @@ public class MENU extends javax.swing.JFrame {
         });
         MANTENIMIENTO.add(jMenuItem2);
 
-        jMenuItem3.setText("jMenuItem3");
+        jMenuItem3.setText("Modificaciones de Empleado");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         MANTENIMIENTO.add(jMenuItem3);
 
         FuncionUsuarioMantenimiento.add(MANTENIMIENTO);
@@ -125,7 +131,12 @@ public class MENU extends javax.swing.JFrame {
 
         SALIR.setText("SALIR");
 
-        jMenuItem4.setText("jMenuItem4");
+        jMenuItem4.setText("Salir");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         SALIR.add(jMenuItem4);
 
         FuncionUsuarioMantenimiento.add(SALIR);
@@ -151,6 +162,17 @@ public class MENU extends javax.swing.JFrame {
         formBajasEmpleado = new BajasEmpleados();
          jDesktopPane1.add(formBajasEmpleado);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        formModEmpleado = new ModificacionesEmpleados();
+         jDesktopPane1.add(formModEmpleado);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        dispose();//Codigo  para  salir del Programa
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
