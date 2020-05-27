@@ -16,6 +16,8 @@ public class MENU extends javax.swing.JFrame {
     private BajasEmpleados formBajasEmpleado;
     private ModificacionesEmpleados formModEmpleado;
     private Mostrar mostrarN;
+    private AltasEmpleado formAltasEmpleado;
+    private ChequesEmpleados formChequesEmpleados;
 
     public MENU() {
         initComponents();
@@ -93,7 +95,12 @@ public class MENU extends javax.swing.JFrame {
 
         MANTENIMIENTO.setText("MANTENIMIENTO");
 
-        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.setText("Altas de Empleado");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         MANTENIMIENTO.add(jMenuItem1);
 
         jMenuItem2.setText("Bajas de Empleado");
@@ -116,7 +123,7 @@ public class MENU extends javax.swing.JFrame {
 
         FUNCIONES.setText("FUNCIONES");
 
-        jMenuItem5.setText("jMenuItem5");
+        jMenuItem5.setText("Cheque Empleado");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -186,7 +193,8 @@ public class MENU extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
+        formChequesEmpleados = new ChequesEmpleados();
+        jDesktopPane1.add(formChequesEmpleados);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
@@ -194,6 +202,11 @@ public class MENU extends javax.swing.JFrame {
          mostrarN = new Mostrar();
          jDesktopPane1.add(mostrarN);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        formAltasEmpleado = new AltasEmpleado();
+        jDesktopPane1.add(formAltasEmpleado);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
