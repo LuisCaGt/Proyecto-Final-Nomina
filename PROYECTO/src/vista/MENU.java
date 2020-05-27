@@ -13,6 +13,7 @@ import modelo.Usuarios;
 public class MENU extends javax.swing.JFrame {
 
     Usuarios mod;
+   private BajasEmpleados formBajasEmpleado;
 
     public MENU() {
         initComponents();
@@ -25,38 +26,35 @@ public class MENU extends javax.swing.JFrame {
 
         if (mod.getIdTipo() == 1) {
             MANTENIMIENTO.setVisible(true);
-            jMenuItem1.setVisible(true);
-            jMenuItem2.setVisible(true);
-            jMenuItem3.setVisible(true);
+            FUNCIONES.setVisible(false);
             SALIR.setVisible(true);
             AYUDA.setVisible(true);
             HERRAMIENTAS.setVisible(true);
         }
          if (mod.getIdTipo() == 2) {
-            jMenuItem4.setVisible(true);
+            FUNCIONES.setVisible(true);
+            jMenuItem5.setVisible(true);
+            jMenuItem6.setVisible(false);
             SALIR.setVisible(true);
             AYUDA.setVisible(true);
             HERRAMIENTAS.setVisible(true);
         }
           if (mod.getIdTipo() == 3) {
-            jMenuItem5.setVisible(true);
+            FUNCIONES.setVisible(true);
+            jMenuItem5.setVisible(false);
+            jMenuItem6.setVisible(true);
             SALIR.setVisible(true);
             AYUDA.setVisible(true);
             HERRAMIENTAS.setVisible(true);
         }
-           if (mod.getIdTipo() < 1 || mod.getIdTipo() > 3) {
+           if (mod.getIdTipo() < 1||mod.getIdTipo() > 3){
             MANTENIMIENTO.setVisible(false);
-            jMenuItem1.setVisible(false);
-            jMenuItem2.setVisible(false);
-            jMenuItem3.setVisible(false);
-            jMenuItem4.setVisible(false);
-            jMenuItem5.setVisible(false);
-            SALIR.setVisible(false);
-            AYUDA.setVisible(false);
-            HERRAMIENTAS.setVisible(false);
+            FUNCIONES.setVisible(false);
+            SALIR.setVisible(true);
+            AYUDA.setVisible(true);
+            HERRAMIENTAS.setVisible(true);
         }
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -67,7 +65,7 @@ public class MENU extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        FUNCIONES = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         AYUDA = new javax.swing.JMenu();
@@ -93,7 +91,12 @@ public class MENU extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
         MANTENIMIENTO.add(jMenuItem1);
 
-        jMenuItem2.setText("jMenuItem2");
+        jMenuItem2.setText("Bajas a Empleados");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         MANTENIMIENTO.add(jMenuItem2);
 
         jMenuItem3.setText("jMenuItem3");
@@ -101,15 +104,15 @@ public class MENU extends javax.swing.JFrame {
 
         FuncionUsuarioMantenimiento.add(MANTENIMIENTO);
 
-        jMenu1.setText("FUNCIONES");
+        FUNCIONES.setText("FUNCIONES");
 
         jMenuItem5.setText("jMenuItem5");
-        jMenu1.add(jMenuItem5);
+        FUNCIONES.add(jMenuItem5);
 
         jMenuItem6.setText("jMenuItem6");
-        jMenu1.add(jMenuItem6);
+        FUNCIONES.add(jMenuItem6);
 
-        FuncionUsuarioMantenimiento.add(jMenu1);
+        FuncionUsuarioMantenimiento.add(FUNCIONES);
 
         AYUDA.setText("AYUDA");
         FuncionUsuarioMantenimiento.add(AYUDA);
@@ -139,6 +142,12 @@ public class MENU extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+          formBajasEmpleado = new BajasEmpleados();
+           jDesktopPane1.add(formBajasEmpleado);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -175,12 +184,12 @@ public class MENU extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu AYUDA;
+    private javax.swing.JMenu FUNCIONES;
     private javax.swing.JMenuBar FuncionUsuarioMantenimiento;
     private javax.swing.JMenu HERRAMIENTAS;
     private javax.swing.JMenu MANTENIMIENTO;
     private javax.swing.JMenu SALIR;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;

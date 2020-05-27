@@ -141,16 +141,13 @@ public class LOGINUSUARIO extends javax.swing.JFrame {
         String pass = new String(txtPassword.getPassword());
 
         if (!txtUsuario.getText().equals("") && !pass.equals("")) {
-
             String nuevoPass = Hash.sha1(pass);
-
             mod.setUsuario(txtUsuario.getText());
             mod.setPassword(nuevoPass);
 
             if (modSql.login(mod)) {
                 MENU frmMenu = new MENU(mod);
                 frmMenu.setVisible(true);
-
             } else {
                 JOptionPane.showMessageDialog(null, "Datos incorrectos");
                 limpiar();
