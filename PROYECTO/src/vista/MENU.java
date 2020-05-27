@@ -19,6 +19,7 @@ public class MENU extends javax.swing.JFrame {
     private Mostrar mostrarN;
     private AltasEmpleado formAltasEmpleado;
     private ChequesEmpleados formChequesEmpleados;
+    private buscar BuscarE;
 
     public MENU() {
         initComponents();
@@ -72,6 +73,7 @@ public class MENU extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         FuncionUsuarioMantenimiento = new javax.swing.JMenuBar();
         MANTENIMIENTO = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -97,6 +99,14 @@ public class MENU extends javax.swing.JFrame {
         );
 
         MANTENIMIENTO.setText("MANTENIMIENTO");
+
+        jMenuItem7.setText("Buscar Empleado");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        MANTENIMIENTO.add(jMenuItem7);
 
         jMenuItem1.setText("Altas de Empleado");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -211,6 +221,12 @@ public class MENU extends javax.swing.JFrame {
         jDesktopPane1.add(formAltasEmpleado);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+          BuscarE = new buscar();
+        jDesktopPane1.add(BuscarE);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -258,5 +274,6 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     // End of variables declaration//GEN-END:variables
 }
