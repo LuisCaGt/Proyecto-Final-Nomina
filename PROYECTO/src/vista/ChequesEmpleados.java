@@ -27,7 +27,7 @@ public class ChequesEmpleados extends javax.swing.JInternalFrame {
      */
     public ChequesEmpleados() {
         initComponents();
-        Label5.setBorder(new fondovistas());
+        Label5.setBorder(new fondovistas());/*Manda a llamar al Java Class de fondo*/
     }
 
     /**
@@ -234,19 +234,21 @@ public class ChequesEmpleados extends javax.swing.JInternalFrame {
         // TODO add your handling code here:  
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdnomina", "root", "");
+            /*Por medio de la variable cn conectamos al boton btnBuscar para que se conecte a la Base de Datos*/
             PreparedStatement pst = cn.prepareStatement("select * from templeados where codigoE = ?");
+            /*Selecionamos el campo que se desea utilizar*/
             pst.setString(1, jTextField1.getText().trim());
-            
+            /*Recibe el codigo que se desea Buscar*/
             ResultSet rs = pst.executeQuery();
             
-            if(rs.next()){
+            if(rs.next()){/*Si el codigo esta registrado en la base de datos que desplegue la informacion*/
                 txt_nombre.setText(rs.getString("nombreE"));
                 txt_apellido.setText(rs.getString("apellidoE"));
                 txt_puesto.setText(rs.getString("puestoE"));
                 txt_sueldo.setText(rs.getString("sueldoE"));
                 txt_estado.setText(rs.getString("estadoE"));
                 cod=jTextField1.getText();
-            } else {
+            } else {/*Por el contrario que muestre un mensaje*/
                 JOptionPane.showMessageDialog(null, "Cliente no registrado.");
             jTextField1.setText("");
             }
@@ -258,18 +260,24 @@ public class ChequesEmpleados extends javax.swing.JInternalFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
 
-        String in = new String(txt_estado.getText());
+        String stringIn = new String(txt_estado.getText());
+        /*varible generica que captura el registro de txt_estado*/
         
-        int b1, b2;
-        b1 = Integer.parseInt(jTextField1.getText());
-        b2 = Integer.parseInt(txt_confirmar.getText());
+        int intBuscar1, intBuscar2;
+        /*varibles genericas para busqueda de codigos*/
+        intBuscar1 = Integer.parseInt(jTextField1.getText());
+        /*Parseamos el codigo de jTextField1*/
+        intBuscar2 = Integer.parseInt(txt_confirmar.getText());
+        /*Parseamos el codigo de txt_confirmar*/
         
         try{
-            if (b1 == b2)
-            {
+            if (intBuscar1 == intBuscar2)
+            {/*si el codigo intBuscar1 es igual al codigo intBuscar2 que siga con el proceso*/
                 
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdnomina", "root", "");
+            /*Por medio de la variable cn conectamos al boton btnBuscar para que se conecte a la Base de Datos*/
             PreparedStatement pst = cn.prepareStatement("insert into tCheques values(?,?,?,?,?,?,?,?,?)");
+            /*Capturamos la tabla de la Base de Datos e insertamos los respectivos datos en cada uno de sus campos*/
             pst.setString(1, "0");
             pst.setString(2, txt_confirmar.getText().trim());
             pst.setString(3,txt_extraordinario.getText().trim());
@@ -281,12 +289,12 @@ public class ChequesEmpleados extends javax.swing.JInternalFrame {
             pst.setString(9, txt_total.getText().trim());
             pst.executeUpdate();
             
-            if("inactivo".equals(in) || "Inactivo".equals(in) || "INACTIVO".equals(in))
-            {
+            if("inactivo".equals(stringIn) || "Inactivo".equals(stringIn) || "INACTIVO".equals(stringIn))
+            {/*si el txt_estado es Inactivo que no procesa con el pago*/
                 JOptionPane.showMessageDialog(null, "El Empleado se encuentra INACTIVO");
             }
             else
-            {
+            {/*Por el contrario si no es inactivo que procesa con el pago*/
             txt_confirmar.setText("");
             txt_extraordinario.setText("");
             txt_bonificacion.setText("");
@@ -306,7 +314,7 @@ public class ChequesEmpleados extends javax.swing.JInternalFrame {
             
             }
             
-            else 
+            else /*Por el contratio si el codigo es distinto que muestre dicho mensaje*/
             {
                 JOptionPane.showMessageDialog(null, "El codigo del Empleado es incorrecto");
             }
@@ -320,19 +328,20 @@ public class ChequesEmpleados extends javax.swing.JInternalFrame {
 
     private void btnTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTotalActionPerformed
 
-        double sueldo, sueldoex, bonificacion, comision, otro, anticipo, descuento, total;
+        double doubleSueldo, doubleSueldoex, doubleBonificacion, doubleComision, doubleOtro, doubleAnticipo, doubleDescuento, doubleTotal;
+        /*Variables genericas para efectual los sumas y restas correspondientes*/
         
-        sueldo= Double.parseDouble(txt_sueldo.getText());
-        sueldoex= Double.parseDouble(txt_extraordinario.getText());
-        bonificacion= Double.parseDouble(txt_bonificacion.getText());
-        comision= Double.parseDouble(txt_comision.getText());
-        otro= Double.parseDouble(txt_otros.getText());
-        anticipo= Double.parseDouble(txt_anticipos.getText());
-        descuento= Double.parseDouble(txt_descuentos.getText());
+        doubleSueldo= Double.parseDouble(txt_sueldo.getText());
+        doubleSueldoex= Double.parseDouble(txt_extraordinario.getText());
+        doubleBonificacion= Double.parseDouble(txt_bonificacion.getText());
+        doubleComision= Double.parseDouble(txt_comision.getText());
+        doubleOtro= Double.parseDouble(txt_otros.getText());
+        doubleAnticipo= Double.parseDouble(txt_anticipos.getText());
+        doubleDescuento= Double.parseDouble(txt_descuentos.getText());
         
-        total= sueldo + sueldoex + bonificacion + comision + otro - anticipo - descuento;
+        doubleTotal= doubleSueldo + doubleSueldoex + doubleBonificacion + doubleComision + doubleOtro - doubleAnticipo - doubleDescuento;
         
-        txt_total.setText(String.valueOf(total));
+        txt_total.setText(String.valueOf(doubleTotal));
         
     }//GEN-LAST:event_btnTotalActionPerformed
 
