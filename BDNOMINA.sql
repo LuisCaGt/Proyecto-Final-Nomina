@@ -20,6 +20,7 @@ estadoE varchar(8) not null
 )ENGINE=INNODB default CHARSET=LATIN1;
 create table tCheques(
 codigoC int auto_increment primary key not null,
+confirmacionC float not null,
 extraordinarioC float not null,
 bonificacionC float not null,
 comisionesC float not null,
