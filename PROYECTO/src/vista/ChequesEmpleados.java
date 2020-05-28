@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author leone
+ * @author Jeff
  */
 public class ChequesEmpleados extends javax.swing.JInternalFrame {
 
