@@ -16,14 +16,14 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author leone
+ * @author Gerson
  */
 public class AltasEmpleado extends javax.swing.JInternalFrame {
 private static Connection con;
  private static final String driver="com.mysql.jdbc.Driver";
     private static final String user="root";
     private static final String pass="";
-    private static final String url="jdbc:mysql://localhost:3306/bdnomina";
+    private static final String url="jdbc:mysql://localhost:3306/bdnomina";//Conecta con la base de datos nomina
     String cod;
         public void conector() {
         // Reseteamos a null la conexion a la bd
@@ -34,12 +34,12 @@ private static Connection con;
             con= (Connection) DriverManager.getConnection(url, user, pass);
             // Si la conexion fue exitosa mostramos un mensaje de conexion exitosa
             if (con!=null){
-                ESTADO.setText("Conexion establecida");
+                ESTADO.setText("Conexion establecida");//muestra el mensaje en pantalla Gerson 
             }
         }
         // Si la conexion NO fue exitosa mostramos un mensaje de error
         catch (ClassNotFoundException | SQLException e){
-            ESTADO.setText("Error de conexion" + e);
+            ESTADO.setText("Error de conexion" + e);// si no hay conexion muestra el mensaje
         }
     }
     /**
@@ -186,13 +186,13 @@ private static Connection con;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdnomina", "root", "");
-            PreparedStatement pst = cn.prepareStatement("insert into tEmpleados values(?,?,?,?,?,?)");
+            PreparedStatement pst = cn.prepareStatement("insert into tEmpleados values(?,?,?,?,?,?)");//aqui le digo que vaya a buscar a la tabla empleados que y guarde en 6 variables gerson 
             pst.setString(1, "0");
             pst.setString(2,jTextField2.getText().trim());
             pst.setString(3, jTextField3.getText().trim());
             pst.setString(4, jTextField4.getText().trim());
             pst.setString(5, jTextField6.getText().trim());
-            pst.setString(6, "Activo");
+            pst.setString(6, "Activo");//una vez ingresado muestra que esta activo Gerson
             pst.executeUpdate();
             jTextField2.setText("");
             jTextField3.setText("");
