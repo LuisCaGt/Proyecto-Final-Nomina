@@ -253,13 +253,13 @@ public class BajasEmpleados extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:  
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdnomina", "root", "");
-            PreparedStatement pst = cn.prepareStatement("select * from templeados where codigoE = ?");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdnomina", "root", "");//Conecta con la base de datos nomina
+            PreparedStatement pst = cn.prepareStatement("select * from templeados where codigoE = ?");//Busca la variable codigoE en la tabla de la base de datos
             pst.setString(1, jTextField1.getText().trim());
             
             ResultSet rs = pst.executeQuery();
             
-            if(rs.next()){
+            if(rs.next()){//Captura las variables string y las convertimos a labels
                 jLabel6.setText(rs.getString("nombreE"));
                 jLabel7.setText(rs.getString("apellidoE"));
                 jLabel8.setText(rs.getString("puestoE"));
@@ -267,7 +267,7 @@ public class BajasEmpleados extends javax.swing.JInternalFrame {
                 jLabel9.setText(rs.getString("estadoE"));
                 cod=jTextField1.getText();
             } else {
-                JOptionPane.showMessageDialog(null, "Cliente no registrado.");
+                JOptionPane.showMessageDialog(null, "Cliente no registrado.");//Si no lo encuentra envia un mensaje de erros
              jLabel6.setText("");
              jLabel7.setText("");
              jLabel8.setText("");
@@ -287,7 +287,7 @@ public class BajasEmpleados extends javax.swing.JInternalFrame {
             String ID = jTextField1.getText().trim();
 
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdnomina", "root", "");
-            PreparedStatement pst = cn.prepareStatement("update templeados set nombreE = ?, apellidoE = ?, puestoE = ?, sueldoE= ?, estadoE= ? where codigoE=?");
+            PreparedStatement pst = cn.prepareStatement("update templeados set nombreE = ?, apellidoE = ?, puestoE = ?, sueldoE= ?, estadoE= ? where codigoE=?");//Aqui especificamos que vamos a actualizar la base de datos
           
             pst.setString(1, jLabel6.getText().trim());
             pst.setString(2, jLabel7.getText().trim());
@@ -303,7 +303,7 @@ public class BajasEmpleados extends javax.swing.JInternalFrame {
             jLabel8.setText("");
             jLabel9.setText("");
             jLabel12.setText("");
-            ESTADO.setText("Modificación exitosa.");
+            ESTADO.setText("Modificación exitosa.");//CONFIRMACION DE QUE SE REALIZO CON EXITO LA ACTUALIZACION
             ESTADO.setText("");
             
         } catch (Exception e) {
@@ -317,7 +317,7 @@ public class BajasEmpleados extends javax.swing.JInternalFrame {
             String ID = jTextField1.getText().trim();
 
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_nomina", "root", "");
-            PreparedStatement pst = cn.prepareStatement("update templeados set nombreE = ?, apellidoE = ?, puestoE = ?, sueldoE= ?, estadoE= ? where codigoE=?");
+            PreparedStatement pst = cn.prepareStatement("update templeados set nombreE = ?, apellidoE = ?, puestoE = ?, sueldoE= ?, estadoE= ? where codigoE=?");//Aqui especificamos que vamos a actualizar la base de datos
           
             pst.setString(1, jLabel6.getText().trim());
             pst.setString(2, jLabel7.getText().trim());
@@ -333,7 +333,7 @@ public class BajasEmpleados extends javax.swing.JInternalFrame {
             jLabel8.setText("");
             jLabel9.setText("");
             jLabel12.setText("");
-            ESTADO.setText("Modificación exitosa.");
+            ESTADO.setText("Modificación exitosa.");//CONFIRMACION DE QUE SE REALIZO CON EXITO LA ACTUALIZACION
             ESTADO.setText("");
             
         } catch (Exception e) {

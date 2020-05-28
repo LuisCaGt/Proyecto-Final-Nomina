@@ -224,13 +224,13 @@ public class Mostrar extends javax.swing.JInternalFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:  
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdnomina", "root", "");
-            PreparedStatement pst = cn.prepareStatement("select * from templeados where codigoE = ?");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdnomina", "root", "");//Conecta con la base de datos nomina
+            PreparedStatement pst = cn.prepareStatement("select * from templeados where codigoE = ?");//Busca la variable codigoE en la tabla de la base de datos
             pst.setString(1, CodigoE.getText().trim());
             
             ResultSet rs = pst.executeQuery();
             
-            if(rs.next()){
+            if(rs.next()){//Captura las variables string y las convertimos a labels
                 txt_nombre.setText(rs.getString("nombreE"));
                 txt_apellido.setText(rs.getString("apellidoE"));
                 txt_puesto.setText(rs.getString("puestoE"));
@@ -238,7 +238,7 @@ public class Mostrar extends javax.swing.JInternalFrame {
                 txt_estado.setText(rs.getString("estadoE"));
                 cod=CodigoE.getText();
             } else {
-                JOptionPane.showMessageDialog(null, "Cliente no registrado.");
+                JOptionPane.showMessageDialog(null, "Cliente no registrado.");//Si no lo encuentra envia un mensaje de error y borra los espacios
             CodigoE.setText("");
               txt_nombre.setText("");
               txt_apellido.setText("");
@@ -255,13 +255,13 @@ public class Mostrar extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
                 try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdnomina", "root", "");
-            PreparedStatement pst = cn.prepareStatement("select * from tCheques where codigoC = ?");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdnomina", "root", "");//Conecta con la base de datos nomina
+            PreparedStatement pst = cn.prepareStatement("select * from tCheques where codigoC = ?");//Busca la variable codigoC en la tabla de la base de datos
             pst.setString(1, CodigoN.getText().trim());
             
             ResultSet rs = pst.executeQuery();
             
-            if(rs.next()){
+            if(rs.next()){//Captura las variables string y las convertimos a labels
                 SueldoE.setText(rs.getString("extraordinarioC"));
                 Boni.setText(rs.getString("bonificacionC"));
                 Comi.setText(rs.getString("comisionesC"));
@@ -271,7 +271,7 @@ public class Mostrar extends javax.swing.JInternalFrame {
                 TotalD.setText(rs.getString("totalC"));
                 cod2=CodigoN.getText();
             } else {
-                JOptionPane.showMessageDialog(null, "Cliente no registrado.");
+                JOptionPane.showMessageDialog(null, "Cliente no registrado.");//Si no lo encuentra envia un mensaje de error y borra los espacios
             CodigoN.setText("");
              SueldoE.setText("");
               Boni.setText("");

@@ -124,27 +124,28 @@ public class LOGINADMIN extends javax.swing.JFrame {
 
         String pass = new String(txtPassword.getPassword());
 
-        if (!txtUsuario.getText().equals("") && !pass.equals("")) {
+        if (!txtUsuario.getText().equals("") && !pass.equals("")) {//Compara que los campos no esten vacios
 
-            String nuevoPass = Hash.sha1(pass);
+            String nuevoPass = Hash.sha1(pass);//desencripta las contraseñas
 
             mod.setUsuario(txtUsuario.getText());
             mod.setPassword(nuevoPass);
 
             if (modSql.login(mod)) {
-                if (mod.getIdTipo() == 4) {
+                if (mod.getIdTipo() == 4) {//si el usuario tiene rol 4, puede seguir con el proceso de asignacion de operador
                     
                 frmREGISTRAROP = new REGISTRAROP();
                 frmREGISTRAROP.setVisible(true);
         } 
                 
             } else {
-                JOptionPane.showMessageDialog(null, "Datos incorrectos");
+                JOptionPane.showMessageDialog(null, "Datos incorrectos");//Validacion de datos con la base de datos
                 limpiar();
             }
             
         } else {
             JOptionPane.showMessageDialog(null, "Debe ingresar sus datos");
+            limpiar();
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
 private void limpiar() {

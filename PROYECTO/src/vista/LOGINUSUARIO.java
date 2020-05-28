@@ -13,6 +13,7 @@ import modelo.Usuarios;
 
 /**
  *
+ * @author leone
  */
 public class LOGINUSUARIO extends javax.swing.JFrame {
 
@@ -125,7 +126,7 @@ public class LOGINUSUARIO extends javax.swing.JFrame {
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
 
-        if (frmLADMIN == null) {
+        if (frmLADMIN == null) {//SI SELECCIONA ESTE BOTON LO REEDIRIGIMOS A OTRA FORMA
 
             frmLADMIN = new LOGINADMIN();
             frmLADMIN.setVisible(true);
@@ -140,23 +141,25 @@ public class LOGINUSUARIO extends javax.swing.JFrame {
 
         String pass = new String(txtPassword.getPassword());
 
-        if (!txtUsuario.getText().equals("") && !pass.equals("")) {
+        if (!txtUsuario.getText().equals("") && !pass.equals("")) {//COMPARAMOS QUE LOS CAMPOS NO ESTEN VACIOS
 
-            String nuevoPass = Hash.sha1(pass);
+            String nuevoPass = Hash.sha1(pass);//DESENCRIPTAMOS LAS CONTRASEÑA
 
             mod.setUsuario(txtUsuario.getText());
             mod.setPassword(nuevoPass);
 
             if (modSql.login(mod)) {
                 MENU frmMenu = new MENU(mod);
-                frmMenu.setVisible(true);
+                frmMenu.setVisible(true);//DATOS AUTORIZACION A CUALQUIER USUARIO CON UN ROL
+                 limpiar();
 
             } else {
-                JOptionPane.showMessageDialog(null, "Datos incorrectos");
+                JOptionPane.showMessageDialog(null, "Datos incorrectos");//AQUI HACEMOS VALIDACION DE DATOS
                 limpiar();
             }
         } else {
             JOptionPane.showMessageDialog(null, "Debe ingresar sus datos");
+            limpiar();
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
     

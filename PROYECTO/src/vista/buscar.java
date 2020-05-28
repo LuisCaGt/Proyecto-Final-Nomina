@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
 public class buscar extends javax.swing.JInternalFrame {
     String cod;
     /**
-     * Creates new form BajasEmpleados
+     * Creates new form buscar
      */
     public buscar() {
         initComponents();
@@ -194,13 +194,13 @@ public class buscar extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:  
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdnomina", "root", "");
-            PreparedStatement pst = cn.prepareStatement("select * from templeados where codigoE = ?");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdnomina", "root", "");//Conecta con la base de datos nomina
+            PreparedStatement pst = cn.prepareStatement("select * from templeados where codigoE = ?");//Busca la variable codigoE en la tabla de la base de datos
             pst.setString(1, jTextField1.getText().trim());
             
             ResultSet rs = pst.executeQuery();
             
-            if(rs.next()){
+            if(rs.next()){//Captura las variables string y las convertimos a labels
                 nombre.setText(rs.getString("nombreE"));
                 apellido.setText(rs.getString("apellidoE"));
                 puesto.setText(rs.getString("puestoE"));
@@ -208,7 +208,7 @@ public class buscar extends javax.swing.JInternalFrame {
                 estado.setText(rs.getString("estadoE"));
                 cod=jTextField1.getText();
             } else {
-                JOptionPane.showMessageDialog(null, "Cliente no registrado.");
+                JOptionPane.showMessageDialog(null, "Cliente no registrado.");//Si no lo encuentra envia un mensaje de error y borra los espacios
             jTextField1.setText("");
             nombre.setText("");
             apellido.setText("");
