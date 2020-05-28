@@ -1,6 +1,7 @@
 
 package vista;
 
+import Imagenes.fondovistas;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -49,6 +50,7 @@ public class Mostrar extends javax.swing.JInternalFrame {
      */
     public Mostrar() {
         initComponents();
+        Label5.setBorder(new fondovistas());
     }
 
     /**
@@ -94,20 +96,50 @@ public class Mostrar extends javax.swing.JInternalFrame {
         Anti = new javax.swing.JLabel();
         TotalD = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
+        Label5 = new javax.swing.JLabel();
 
         setClosable(true);
         setMaximizable(true);
+        setMaximumSize(new java.awt.Dimension(570, 570));
+        setMinimumSize(new java.awt.Dimension(570, 570));
+        setPreferredSize(new java.awt.Dimension(570, 570));
         setVisible(true);
+        getContentPane().setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Javanese Text", 0, 12)); // NOI18N
         jLabel1.setText("Codigo:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(125, 72, 39, 28);
+        getContentPane().add(CodigoE);
+        CodigoE.setBounds(179, 72, 91, 30);
 
+        jLabel2.setFont(new java.awt.Font("Javanese Text", 0, 12)); // NOI18N
         jLabel2.setText("Nombre:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(125, 109, 46, 28);
 
+        jLabel3.setFont(new java.awt.Font("Javanese Text", 0, 12)); // NOI18N
         jLabel3.setText("Apellido:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(125, 146, 46, 28);
 
+        jLabel4.setFont(new java.awt.Font("Javanese Text", 0, 12)); // NOI18N
         jLabel4.setText("Puesto:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(125, 183, 38, 28);
 
+        jLabel5.setFont(new java.awt.Font("Javanese Text", 0, 12)); // NOI18N
         jLabel5.setText("Estado:");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(126, 257, 39, 28);
+        getContentPane().add(txt_nombre);
+        txt_nombre.setBounds(184, 119, 178, 16);
+        getContentPane().add(txt_apellido);
+        txt_apellido.setBounds(186, 156, 178, 16);
+        getContentPane().add(txt_puesto);
+        txt_puesto.setBounds(179, 183, 178, 14);
+        getContentPane().add(txt_estado);
+        txt_estado.setBounds(180, 269, 178, 14);
 
         btnBuscar.setText("BUSCAR");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -115,31 +147,69 @@ public class Mostrar extends javax.swing.JInternalFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnBuscar);
+        btnBuscar.setBounds(288, 71, 90, 23);
+        getContentPane().add(ESTADO);
+        ESTADO.setBounds(232, 514, 0, 0);
 
+        jLabel11.setFont(new java.awt.Font("Javanese Text", 0, 12)); // NOI18N
         jLabel11.setText("Sueldo:");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(126, 220, 39, 28);
+        getContentPane().add(txt_sueldo);
+        txt_sueldo.setBounds(179, 220, 178, 26);
 
+        jLabel10.setFont(new java.awt.Font("Javanese Text", 0, 12)); // NOI18N
         jLabel10.setText("Sueldo Extraordinario:");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(23, 383, 119, 28);
 
+        jLabel13.setFont(new java.awt.Font("Javanese Text", 0, 12)); // NOI18N
         jLabel13.setText("Bonificación:");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(23, 419, 68, 28);
 
+        jLabel14.setFont(new java.awt.Font("Javanese Text", 0, 12)); // NOI18N
         jLabel14.setText("Comisiones:");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(20, 450, 62, 28);
 
+        jLabel15.setFont(new java.awt.Font("Javanese Text", 0, 12)); // NOI18N
         jLabel15.setText("Otros:");
+        getContentPane().add(jLabel15);
+        jLabel15.setBounds(20, 480, 32, 28);
 
+        jLabel16.setFont(new java.awt.Font("Javanese Text", 0, 12)); // NOI18N
         jLabel16.setText("Anticipos:");
+        getContentPane().add(jLabel16);
+        jLabel16.setBounds(321, 419, 52, 28);
 
+        jLabel17.setFont(new java.awt.Font("Javanese Text", 0, 12)); // NOI18N
         jLabel17.setText("Descuentos:");
+        getContentPane().add(jLabel17);
+        jLabel17.setBounds(321, 383, 64, 28);
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Javanese Text", 1, 13)); // NOI18N
         jLabel18.setText("Bonos");
+        getContentPane().add(jLabel18);
+        jLabel18.setBounds(23, 346, 51, 31);
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Javanese Text", 1, 13)); // NOI18N
         jLabel19.setText("Descuentos");
+        getContentPane().add(jLabel19);
+        jLabel19.setBounds(321, 346, 74, 31);
 
+        jLabel20.setFont(new java.awt.Font("Javanese Text", 0, 12)); // NOI18N
         jLabel20.setText("Total Devengado");
+        getContentPane().add(jLabel20);
+        jLabel20.setBounds(321, 456, 89, 28);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Javanese Text", 1, 20)); // NOI18N
         jLabel6.setText("MOSTRAR NOMINA");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(179, 8, 212, 52);
+        getContentPane().add(CodigoN);
+        CodigoN.setBounds(213, 302, 90, 30);
 
         jButton1.setText("BUSCAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -147,164 +217,29 @@ public class Mostrar extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(321, 301, 90, 23);
+        getContentPane().add(SueldoE);
+        SueldoE.setBounds(150, 390, 100, 16);
+        getContentPane().add(Boni);
+        Boni.setBounds(150, 420, 100, 16);
+        getContentPane().add(Comi);
+        Comi.setBounds(150, 450, 100, 16);
+        getContentPane().add(Otros);
+        Otros.setBounds(150, 480, 100, 16);
+        getContentPane().add(Des);
+        Des.setBounds(420, 390, 99, 16);
+        getContentPane().add(Anti);
+        Anti.setBounds(420, 420, 99, 16);
+        getContentPane().add(TotalD);
+        TotalD.setBounds(415, 456, 90, 16);
 
+        jLabel25.setFont(new java.awt.Font("Javanese Text", 0, 11)); // NOI18N
         jLabel25.setText("Codigo Nomina");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel4))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_puesto, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_sueldo, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(CodigoE, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnBuscar))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_estado, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(232, 232, 232)
-                        .addComponent(ESTADO))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(48, 48, 48)
-                                .addComponent(jLabel25)
-                                .addGap(18, 18, 18)
-                                .addComponent(CodigoN, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel20)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(TotalD, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(jLabel16)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(Anti, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(jLabel17)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(Des, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel15))
-                                .addGap(17, 17, 17)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Comi, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(SueldoE, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Boni, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Otros, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(223, 223, 223)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(120, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(CodigoE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(txt_apellido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(txt_puesto, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txt_sueldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(txt_estado, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButton1)
-                                    .addComponent(CodigoN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel25))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel18)
-                                    .addComponent(jLabel19))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(SueldoE, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel17)))
-                            .addComponent(Des, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel10))
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Boni, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel16)
-                    .addComponent(Anti, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel15)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Comi, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel20)
-                            .addComponent(TotalD, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Otros, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                        .addComponent(ESTADO)))
-                .addContainerGap())
-        );
+        getContentPane().add(jLabel25);
+        jLabel25.setBounds(122, 302, 73, 26);
+        getContentPane().add(Label5);
+        Label5.setBounds(0, 0, 560, 525);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -372,6 +307,7 @@ public class Mostrar extends javax.swing.JInternalFrame {
     private javax.swing.JLabel Comi;
     private javax.swing.JLabel Des;
     private javax.swing.JLabel ESTADO;
+    private javax.swing.JLabel Label5;
     private javax.swing.JLabel Otros;
     private javax.swing.JLabel SueldoE;
     private javax.swing.JLabel TotalD;
