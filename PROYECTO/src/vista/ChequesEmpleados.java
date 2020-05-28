@@ -256,7 +256,7 @@ public class ChequesEmpleados extends javax.swing.JInternalFrame {
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
 
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdnomina", "root", "");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/bdnomina", "root", "");
             PreparedStatement pst = cn.prepareStatement("insert into tCheques values(?,?,?,?,?,?,?,?)");
             pst.setString(1, "0");
             pst.setString(2,txt_extraordinario.getText().trim());
@@ -275,6 +275,13 @@ public class ChequesEmpleados extends javax.swing.JInternalFrame {
             txt_anticipos.setText("");
             txt_descuentos.setText("");
             txt_total.setText("");
+            
+            txt_nombre.setText(null);
+            txt_apellido.setText(null);
+            txt_puesto.setText(null);
+            txt_sueldo.setText(null);
+            txt_estado.setText(null);
+            jTextField1.setText(null);
 
         }catch (Exception e){
             System.out.print(e.getMessage());
@@ -284,15 +291,15 @@ public class ChequesEmpleados extends javax.swing.JInternalFrame {
 
     private void btnTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTotalActionPerformed
 
-        float sueldo, sueldoex, bonificacion, comision, otro, anticipo, descuento, total;
+        double sueldo, sueldoex, bonificacion, comision, otro, anticipo, descuento, total;
         
-        sueldo= Integer.parseInt(txt_sueldo.getText());
-        sueldoex= Integer.parseInt(txt_extraordinario.getText());
-        bonificacion= Integer.parseInt(txt_bonificacion.getText());
-        comision= Integer.parseInt(txt_comision.getText());
-        otro= Integer.parseInt(txt_otros.getText());
-        anticipo= Integer.parseInt(txt_anticipos.getText());
-        descuento= Integer.parseInt(txt_descuentos.getText());
+        sueldo= Double.parseDouble(txt_sueldo.getText());
+        sueldoex= Double.parseDouble(txt_extraordinario.getText());
+        bonificacion= Double.parseDouble(txt_bonificacion.getText());
+        comision= Double.parseDouble(txt_comision.getText());
+        otro= Double.parseDouble(txt_otros.getText());
+        anticipo= Double.parseDouble(txt_anticipos.getText());
+        descuento= Double.parseDouble(txt_descuentos.getText());
         
         total= sueldo + sueldoex + bonificacion + comision + otro - anticipo - descuento;
         
