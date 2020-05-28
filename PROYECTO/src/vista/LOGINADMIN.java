@@ -24,6 +24,7 @@ public class LOGINADMIN extends javax.swing.JFrame {
      */
     public LOGINADMIN() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

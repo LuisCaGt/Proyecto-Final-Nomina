@@ -12,7 +12,7 @@ public class Conexion {
     private final String base = "bdnomina";
     private final String user = "root";
     private final String password = "";
-    private final String url = "jdbc:mysql://localhost:3307/" + base;
+    private final String url = "jdbc:mysql://localhost:3306/" + base;
     private Connection con = null;
     
     public Connection getConexion()

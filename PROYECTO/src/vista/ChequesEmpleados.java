@@ -230,7 +230,7 @@ public class ChequesEmpleados extends javax.swing.JInternalFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:  
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/bdnomina", "root", "");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdnomina", "root", "");
             PreparedStatement pst = cn.prepareStatement("select * from templeados where codigoE = ?");
             pst.setString(1, jTextField1.getText().trim());
             
@@ -256,7 +256,7 @@ public class ChequesEmpleados extends javax.swing.JInternalFrame {
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
 
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/bdnomina", "root", "");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdnomina", "root", "");
             PreparedStatement pst = cn.prepareStatement("insert into tCheques values(?,?,?,?,?,?,?,?)");
             pst.setString(1, "0");
             pst.setString(2,txt_extraordinario.getText().trim());
