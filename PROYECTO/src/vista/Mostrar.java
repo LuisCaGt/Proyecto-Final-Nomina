@@ -17,34 +17,11 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author leone
+ * @author Carlos
  */
 public class Mostrar extends javax.swing.JInternalFrame {
-
- private static Connection con;
- private static final String driver="com.mysql.jdbc.Driver";
-    private static final String user="root";
-    private static final String pass="";
-    private static final String url="jdbc:mysql://localhost:3306/bdnomina";
     String cod;
     String cod2;
-        public void conector() {
-        // Reseteamos a null la conexion a la bd
-        con=null;
-        try{
-            Class.forName(driver);
-            // Nos conectamos a la bd
-            con= (Connection) DriverManager.getConnection(url, user, pass);
-            // Si la conexion fue exitosa mostramos un mensaje de conexion exitosa
-            if (con!=null){
-                ESTADO.setText("Conexion establecida");
-            }
-        }
-        // Si la conexion NO fue exitosa mostramos un mensaje de error
-        catch (ClassNotFoundException | SQLException e){
-            ESTADO.setText("Error de conexion" + e);
-        }
-    }
     /**
      * Creates new form BajasEmpleados
      */
@@ -263,6 +240,11 @@ public class Mostrar extends javax.swing.JInternalFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Cliente no registrado.");
             CodigoE.setText("");
+              txt_nombre.setText("");
+              txt_apellido.setText("");
+               txt_puesto.setText("");
+                txt_sueldo.setText("");
+                 txt_estado.setText("");
             }
             
         }catch (Exception e){
@@ -291,6 +273,13 @@ public class Mostrar extends javax.swing.JInternalFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Cliente no registrado.");
             CodigoN.setText("");
+             SueldoE.setText("");
+              Boni.setText("");
+               Comi.setText("");
+                Otros.setText("");
+                 Des.setText("");
+                  Anti.setText("");
+                   TotalD.setText("");
             }
             
         }catch (Exception e){

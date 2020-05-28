@@ -268,6 +268,11 @@ public class BajasEmpleados extends javax.swing.JInternalFrame {
                 cod=jTextField1.getText();
             } else {
                 JOptionPane.showMessageDialog(null, "Cliente no registrado.");
+             jLabel6.setText("");
+             jLabel7.setText("");
+             jLabel8.setText("");
+             jLabel12.setText("");
+             jLabel9.setText("");
             jTextField1.setText("");
             }
             

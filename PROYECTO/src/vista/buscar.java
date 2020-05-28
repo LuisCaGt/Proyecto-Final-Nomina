@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author leone
+ * @author Carlos
  */
 public class buscar extends javax.swing.JInternalFrame {
     String cod;
@@ -210,6 +210,11 @@ public class buscar extends javax.swing.JInternalFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Cliente no registrado.");
             jTextField1.setText("");
+            nombre.setText("");
+            apellido.setText("");
+            sueldo.setText("");
+            puesto.setText("");
+            estado.setText("");
             }
             
         }catch (Exception e){
