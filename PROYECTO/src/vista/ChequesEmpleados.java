@@ -72,6 +72,7 @@ public class ChequesEmpleados extends javax.swing.JInternalFrame {
         jLabel20 = new javax.swing.JLabel();
         btnTotal = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        txt_confirmar = new javax.swing.JTextField();
         Label5 = new javax.swing.JLabel();
 
         setClosable(true);
@@ -189,9 +190,9 @@ public class ChequesEmpleados extends javax.swing.JInternalFrame {
         txt_descuentos.setBounds(355, 415, 133, 30);
 
         jLabel18.setFont(new java.awt.Font("Javanese Text", 0, 11)); // NOI18N
-        jLabel18.setText("Bonos");
+        jLabel18.setText("Confirmar Codigo:");
         getContentPane().add(jLabel18);
-        jLabel18.setBounds(111, 341, 51, 26);
+        jLabel18.setBounds(20, 340, 90, 26);
 
         jLabel19.setFont(new java.awt.Font("Javanese Text", 0, 11)); // NOI18N
         jLabel19.setText("Descuentos");
@@ -221,6 +222,8 @@ public class ChequesEmpleados extends javax.swing.JInternalFrame {
         jLabel6.setText("Cheques Empleados");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(142, 30, 200, 30);
+        getContentPane().add(txt_confirmar);
+        txt_confirmar.setBounds(120, 340, 130, 30);
         getContentPane().add(Label5);
         Label5.setBounds(0, 0, 540, 590);
 
@@ -255,19 +258,28 @@ public class ChequesEmpleados extends javax.swing.JInternalFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
 
+        int b1, b2;
+        b1 = Integer.parseInt(jTextField1.getText());
+        b2 = Integer.parseInt(txt_confirmar.getText());
+        
         try{
+            if (b1 == b2)
+            {
+                
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdnomina", "root", "");
-            PreparedStatement pst = cn.prepareStatement("insert into tCheques values(?,?,?,?,?,?,?,?)");
+            PreparedStatement pst = cn.prepareStatement("insert into tCheques values(?,?,?,?,?,?,?,?,?)");
             pst.setString(1, "0");
-            pst.setString(2,txt_extraordinario.getText().trim());
-            pst.setString(3, txt_bonificacion.getText().trim());
-            pst.setString(4, txt_comision.getText().trim());
-            pst.setString(5, txt_otros.getText().trim());
-            pst.setString(6, txt_anticipos.getText().trim());
-            pst.setString(7, txt_descuentos.getText().trim());
-            pst.setString(8, txt_total.getText().trim());
+            pst.setString(2, txt_confirmar.getText().trim());
+            pst.setString(3,txt_extraordinario.getText().trim());
+            pst.setString(4, txt_bonificacion.getText().trim());
+            pst.setString(5, txt_comision.getText().trim());
+            pst.setString(6, txt_otros.getText().trim());
+            pst.setString(7, txt_anticipos.getText().trim());
+            pst.setString(8, txt_descuentos.getText().trim());
+            pst.setString(9, txt_total.getText().trim());
             pst.executeUpdate();
             
+            txt_confirmar.setText("");
             txt_extraordinario.setText("");
             txt_bonificacion.setText("");
             txt_comision.setText("");
@@ -282,6 +294,14 @@ public class ChequesEmpleados extends javax.swing.JInternalFrame {
             txt_sueldo.setText(null);
             txt_estado.setText(null);
             jTextField1.setText(null);
+            
+            }
+            
+            else 
+            {
+                JOptionPane.showMessageDialog(null, "El codigo del Empleado es incorrecto");
+            }
+            
 
         }catch (Exception e){
             System.out.print(e.getMessage());
@@ -335,6 +355,7 @@ public class ChequesEmpleados extends javax.swing.JInternalFrame {
     private javax.swing.JLabel txt_apellido;
     private javax.swing.JTextField txt_bonificacion;
     private javax.swing.JTextField txt_comision;
+    private javax.swing.JTextField txt_confirmar;
     private javax.swing.JTextField txt_descuentos;
     private javax.swing.JLabel txt_estado;
     private javax.swing.JTextField txt_extraordinario;
