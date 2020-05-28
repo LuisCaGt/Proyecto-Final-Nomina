@@ -258,6 +258,8 @@ public class ChequesEmpleados extends javax.swing.JInternalFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
 
+        String in = new String(txt_estado.getText());
+        
         int b1, b2;
         b1 = Integer.parseInt(jTextField1.getText());
         b2 = Integer.parseInt(txt_confirmar.getText());
@@ -279,6 +281,12 @@ public class ChequesEmpleados extends javax.swing.JInternalFrame {
             pst.setString(9, txt_total.getText().trim());
             pst.executeUpdate();
             
+            if("inactivo".equals(in) || "Inactivo".equals(in) || "INACTIVO".equals(in))
+            {
+                JOptionPane.showMessageDialog(null, "El Empleado se encuentra INACTIVO");
+            }
+            else
+            {
             txt_confirmar.setText("");
             txt_extraordinario.setText("");
             txt_bonificacion.setText("");
@@ -294,6 +302,7 @@ public class ChequesEmpleados extends javax.swing.JInternalFrame {
             txt_sueldo.setText(null);
             txt_estado.setText(null);
             jTextField1.setText(null);
+            }
             
             }
             
